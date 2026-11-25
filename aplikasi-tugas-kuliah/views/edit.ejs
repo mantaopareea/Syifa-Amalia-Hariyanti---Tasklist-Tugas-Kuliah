@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Tugas</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Tugas Kuliah</h1>
+
+        <form action="/edit/<%= tugas.id_tugas %>" method="POST">
+            <input type="text" name="nama_tugas" value="<%= tugas.nama_tugas %>" required>
+
+            <input type="text" name="mata_kuliah" value="<%= tugas.mata_kuliah %>" required>
+
+            <input type="date" name="deadline" value="<%= tugas.deadline %>" required>
+
+            <select name="status">
+                <option value="Belum Dikerjakan" <%=tugas.status==='Belum Dikerjakan' ? 'selected' : '' %>>
+                    Belum Dikerjakan
+                </option>
+
+                <option value="Sedang Dikerjakan" <%=tugas.status==='Sedang Dikerjakan' ? 'selected' : '' %>>
+                    Sedang Dikerjakan
+                </option>
+
+                <option value="Selesai" <%=tugas.status==='Selesai' ? 'selected' : '' %>>
+                    Selesai
+                </option>
+            </select>
+
+            <button type="submit">Simpan Perubahan</button>
+            <a href="/">Kembali</a>
+        </form>
+    </div>
+</body>
+
+</html>
